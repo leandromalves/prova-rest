@@ -1,22 +1,28 @@
 package br.com.ecad.prova.modelo;
 
-import java.util.List;
-
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 
 @Entity
 public class Palavra {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	
 	private String palavra;
 	
-	// Tweets em que a palavra está presente.
-	@ManyToMany
-	private List<Tweet> tweetsPresente;
 	
-	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public String getPalavra() {
 		return palavra;
 	}
@@ -24,4 +30,5 @@ public class Palavra {
 	public void setPalavra(String palavra) {
 		this.palavra = palavra;
 	}
+
 }
